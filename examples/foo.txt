@@ -1,0 +1,5 @@
+define foo with x:
+print x.
+end define.
+
+use foo with 12.
