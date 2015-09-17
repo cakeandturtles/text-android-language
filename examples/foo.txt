@@ -1,5 +1,5 @@
 define foo with x:
 print x.
-end define.
+end foo.
 
 use foo with 12.
