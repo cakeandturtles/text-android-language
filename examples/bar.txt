@@ -1,0 +1,6 @@
+define bar with x, y:
+#this is a comment
+print x%y.
+end bar.
+
+use bar with 12, 5.
