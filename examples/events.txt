@@ -1,0 +1,3 @@
+when volume up pressed:
+print "volume up button pressed."
+end volume up pressed.
