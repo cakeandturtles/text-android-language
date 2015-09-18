@@ -6,10 +6,13 @@ end
 #or end with a colon
 define bar with x: return x*2; end
 
+define bar: return 3; end
+
 a is bar with 12, 5; print a.
 
 b is bar with 12
 print b
 
-#should throw an error? 
-#c is bar
+bar is 3
+d is bar
+e is call bar
