@@ -1,5 +1,5 @@
 define foo with x:
-print x.
-end foo.
+print x
+end foo
 
-use foo with 12.
+foo with 12

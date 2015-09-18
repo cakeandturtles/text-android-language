@@ -1,6 +1,16 @@
 define bar with x, y:
-#this is a comment
-print x%y.
-end bar.
+ #this is a comment
+ return x * y
+end bar
 
-use bar with 12, 5.
+define bar with x:
+ return x*2;
+end bar
+
+a is bar with 12, 5; print a.
+
+b is bar with 12
+print b
+
+#should throw an error? 
+#c is bar
