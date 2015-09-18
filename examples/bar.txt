@@ -1,11 +1,10 @@
-define bar with x, y:
+define bar with x, y #allow define statement to end with a newline
  #this is a comment
  return x * y
-end bar
+end
 
-define bar with x:
- return x*2;
-end bar
+#or end with a colon
+define bar with x: return x*2; end
 
 a is bar with 12, 5; print a.
 
