@@ -6,7 +6,5 @@ def foo with x
   print x
 end
 
-food is 3
-
 food
 foo with 12
