@@ -1,0 +1,19 @@
+def function name
+	print, "who up click like"
+end
+
+class test square
+	public x
+	
+	def test square, x
+		this. x is x times 2
+	end
+	
+	static def foo bar, x
+		return x times 2
+	end
+end
+
+my square is test square, 12
+print, my square. x
+print, test square. foo bar, 12

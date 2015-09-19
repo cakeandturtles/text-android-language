@@ -1,18 +1,19 @@
-define bar with x, y #allow define statement to end with a newline
+define bar x, y #allow define statement to end with a newline
  #this is a comment
  return x * y
 end
 
 #or end with a colon
-define bar with x: return x*2; end
+define bar x: return x*2; end
 
 define bar: return 3; end
 
 a is bar 12, 5; print a.
 
-b is bar with 12
+b is bar 12
 print b
 
-bar is 3
-d is bar
-e is call bar
+#should not allow variables to have same name as functions
+#bar is 3
+#d is bar
+#e is call bar

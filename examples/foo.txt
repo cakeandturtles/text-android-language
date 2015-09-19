@@ -2,9 +2,9 @@ def food
   print "yum, yum!"
 end
 
-def foo with x
+def foo x
   print x
 end
 
 food
-foo with 12
+foo 12
