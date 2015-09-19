@@ -6,5 +6,7 @@ def foo with x
   print x
 end
 
-call food
-call foo with 12
+food is 3
+
+food
+foo with 12
