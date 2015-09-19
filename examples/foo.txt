@@ -1,5 +1,10 @@
-define foo with x:
-print x
-end foo
+def food
+  print "yum, yum!"
+end
 
+def foo with x
+  print x
+end
+
+food
 foo with 12
