@@ -1,3 +1,6 @@
-when volume up pressed:
-print "volume up button pressed."
-end volume up pressed.
+import android
+
+#uuh
+when android. volume up pressed:
+	print "volume up button pressed."
+end

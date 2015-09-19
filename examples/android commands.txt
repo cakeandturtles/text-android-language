@@ -1,4 +1,3 @@
-android vibrate with 1000. #vibrate for 1000 ms
-android toast with "hello, world!", 1000. #show android toast notification with "hello, world" for 1000 ms
-
-#i don't know how to deal with stuff from a module like android.vibrate, android.toast, so i am just using space separation for now
+android. vibrate, 1000 #vibrate for 1000 ms
+#show android toast notification with "hello, world" for 1000 ms
+android. toast, "hello, world!", 1000
