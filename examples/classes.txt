@@ -14,6 +14,6 @@ class test square
 	end
 end
 
-my square is new test square, 12
+my square is test square, 12
 print, my square. x
 print, test square. foo bar, 12
