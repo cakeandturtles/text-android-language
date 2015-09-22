@@ -1,0 +1,22 @@
+b is 10
+c is 5
+d is 3
+e is 2
+
+a is b + c
+a is b plus c
+
+a is b - c
+a is b minus c
+
+a is b * c
+a is b times c
+
+a is b / c
+a is b div c
+
+a is b % c
+a is b mod c
+
+a is b + (c - (d * (e / 2)))
+a is b plus (c minus (d times (e div 2)))
