@@ -1,19 +1,27 @@
-def function name
-	print, "who up click like"
+class Dog
+  public name
+  public species
+  public friend
+  def Dog name, species:
+    my name is name
+    my species is species
+  end
+  
+  def bark message, num_times
+    for i = 0, i < num_times, i++:
+      print message
+    end
+  end
 end
 
-class test square
-	public x
-	
-	def test square, x
-		this. x is x times 2
-	end
-	
-	static def foo bar, x
-		return x times 2
-	end
-end
+dog is Dog "edward", "coribo type"
+dog, bark "ruff!", 1
+dog's friend is Dog "david", "special doggo"
+dog, bark dog's friend's name, 1
+dog, bark your friend's name, 2
+dog, bark Dog "freddy", "doo"'s name, 3
+dog, bark (Dog "scooby", "doo")'s species, 3
 
-my square is test square, 12
-print, my square. x
-print, test square. foo bar, 12
+#dog's name ==
+#dog. name ==
+#dog.name

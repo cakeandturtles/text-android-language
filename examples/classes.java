@@ -1,23 +1,32 @@
 public class classes
 {
-	public class testSquare
+	public class Dog
 	{
-		public Object x;
-		public testSquare(Object x)
+		public Object name;
+		public Object species;
+		public Object friend;
+		public Dog(Object name, Object species)
 		{
-			this.x = ((int)x)*2;
+			this.name = name;
+			this.species = species;
 		}
 		
-		public static Object fooBar(Object x)
+		public static Object bark(Object message, Object num_times)
 		{
-			return ((int)x)*2;
+			for (int i = 0; i < (int)num_times; i++){
+				System.out.println(message);
+			}
 		}
 	}
 	
 	public static void main(String[] args)
 	{
-		testSquare mySquare = new testSquare(12);
-		System.out.println(mySquare.x);
-		System.out.println(testSquare.fooBar(12));
+		Dog dog = new Dog("edward", "coribo type");
+		dog.bark("ruff!", 1);
+		dog.friend = new Dog("david", "special doggo");
+		dog.bark(dog.friend.name, 1);
+		dog.bark(dog.friend.name, 2);
+		dog.bark((new Dog("freddy", "doo")).name, 3);
+		dog.bark((new Dog("scooby", "doo")).species, 3);
 	}
 }

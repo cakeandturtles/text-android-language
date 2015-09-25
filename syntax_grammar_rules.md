@@ -10,16 +10,19 @@ Work In Progress definitely::
 	12e9
 	
 keywords:
-	this
+	my
+	your
 	public
 	private
 	protected #does java have this?
 	is
+	am
+	are
 	static
 	def
 	end
 	class
-	import 
+	import
 	when
 	while
 	for
@@ -28,13 +31,13 @@ keywords:
 	else
 	return
 	break
-	continue	
+	continue
 	#probably missing some, haven't created many example cases yet
 	
 statements:
 	function calls, variable assignment, instance creation #am i forgetting any?
 	#statements are separated either by newline or by semicolon
-	#by the way comments are indicated with a "#" 
+	#by the way comments are indicated with a "#"
 	
 operators:
 	#arithmetic operators
@@ -74,69 +77,56 @@ operators:
 function/variable/class names can be:
 	[any unicode alphabet character or _][any unicode alphabet character or _ or 0-9]+
 	#also allow emoji standard unicode ranges to be any character in above
-	#also allow separation by whitespace
-	#the only reason this is important is because google keyboard automatically puts space between words under default settings, so it's really hard to camelCase variable names, and having to switch screens to use "_" for most variable names reduces efficiency
-	#e.g. valid func name	#this function name is identical
-	#e.g. valid		func name	#to this function name, in terms of parsing
-	
-	#limitation: any whitespace separated word of a variable/function may NOT be a keyword
 	
 variable assignment:
-	valid variable name is valid_value
+	valid_variable_name is valid_value
 	#e.g. a is 3
 	#e.g. _x is a
 	#e.g. emoji is "hello, world"
-	#e.g. valid vari name is true
 	
 function definition:
-	def valid function name
+	def valid_function_name
 		#any valid statements can go here
 	end
 	
 	#alternatively, can separate definition with colon if you don't want to newline
-	def foo bar: end
+	def foobar: end
 	
-	#a function definition separates parameters with a "," indicating that parameters will now start
+	#a function definition separates parameters with a indicating that parameters will now start
 	#commas can be immediately after variable name, or separated by whitespace
-	def foo bar, x, y , another param
-		return x plus y plus another param
+	def foobar x, y , another_param
+		return x plus y plus another_param
 	end
 
 in order to call a function, simply name it after defining it:
-	#e.g. def foo bar: end
-	#     foo bar
+	#e.g. def foobar: end
+	#     foobar
 	#if the function has parameters, simply pass arguments similar to the parameter definition
 	
-	def foo bar, x, y, another param: end
-	foo bar , 3, 2 , 16
+	def foobar x, y, another_param: end
+	foobar 3, 2 , 16
 	
 	#this also works with built-in provided functions
-	print, "hello, world"
-	
-	#note, if value provided as argument is a primitive value instead of a variable name, it is acceptable to leave off commas
 	print "hello, world"
-	x is 2
-	foo bar 3 x 16
 	
 class definition:
+
+class Dog
 	#attribute declarations
 	public name
-	public species type
-	private secret name
+	public species
 	
-	class special doggo
+	def Dog name, species
 		#same as a function definition, but same name as class
 		#to indicate constructor
-		def special doggo, name	, species
-			this. name is name
-			this. species type is species
-			this. secret name is name plus 'secret'
+			my name is name
+			my.species is species
 		end
 		
 		#static class methods work just like java
 		#are indicated by the "static" keyword in front of def
-		static def bark
-			print "ruff!!!!!"
+		static def bark message
+			print message
 		end
 	end
 	
@@ -146,9 +136,21 @@ class definition:
 	#so we just eat any whitespace after a period and interpret it as an object attribute/method reference
 	
 class instantiation:
-	my dog is special doggo, "edward", "caribo type pokemon"
+	dog is Dog, "edward", "caribo type pokemon"
+	
+	#object function calls
+	dog, bark "hello!" #as if a command
 	
 	#attribute accessing
-	print "name: " plus my dog. name
-	print, "species: " + my dog. species type
+	print "name: " plus dog name
+	print "species: " + dog. species
+	print "species: " + dog's species
+	
+	#special case attribute accessing
+	#when accessing an object's attribute as an argument to a function call from that object
+	dog, bark your name
+	#equivalent to
+	dog, bark dog's name
+	
+	
 	
