@@ -1,8 +1,13 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+
+import programComponents.TxtFunctionCall;
+import programComponents.TxtStatement;
+import programComponents.TxtStringValue;
+import programComponents.TxtValue;
 
 public class Program {
 	String filename;
+	ArrayList<TxtStatement> statements;
 	
 	public Program(String filename, String script){
 		this.filename = filename;
@@ -10,11 +15,12 @@ public class Program {
 	}
 	
 	private void parse(String script){
+		statements = new ArrayList<TxtStatement>();
 		TxtTokenizer txt = new TxtTokenizer(script);
 		
-		Pattern pattern = Pattern.compile("^.");
 		while (!txt.isEndOfFile()){
-			String statement = parseStatement(txt);
+			TxtStatement statement = parseStatement(txt);
+			statements.add(statement);
 			if (statement == null) break;
 		}
 	}
@@ -26,43 +32,47 @@ public class Program {
 		return "";
 	}
 	
-	//TODO:: should return statement object
-	private String parseStatement(TxtTokenizer txt){
+	private TxtStatement parseStatement(TxtTokenizer txt){
+		TxtStatement statement;
 		Backtracker backtrack = new Backtracker();
 		
 		//function call
 		txt.setBacktrackPoint();
 		try{
 			String whitespace = txt.getWhitespace();
-			String id = txt.getIdentifier();
-			if (id == null) throw backtrack;
+			String funcName = txt.getIdentifier();
+			if (funcName == null) throw backtrack;
 			String newline = txt.getEndOfLine();
 			if (newline != null){
-				System.out.println("func call w/ no arguments: " + id);
-				//TODO: make statement object with appropriate properties
+				System.out.println("func call w/ no arguments: " + funcName);
+				statement = new TxtFunctionCall(funcName);
 				txt.clearBacktrack();
-				return "";
+				return statement;
 			}
 			whitespace = txt.getWhitespace();
 			if (whitespace == null) throw backtrack;
 		
+			ArrayList<TxtValue> arguments = new ArrayList<TxtValue>();
+			
 			//TODO:: need to look for any sort of expression/value
 			String str = txt.getStringLiteral();
 			if (str == null) throw backtrack;
+			arguments.add(new TxtStringValue(str));
 			
-			System.out.println("func call: " + id + " w/ argument: " + str);
+			System.out.println("func call: " + funcName + " w/ argument: " + str);
+			statement = new TxtFunctionCall(funcName, arguments);
 			
 			//TODO:: allow for more than one parameter
 			newline = txt.getEndOfLine();
 			if (newline == null) throw backtrack;
 			
 			txt.clearBacktrack();
-			return "";
+			return statement;
 		}catch(Backtracker ex){
 			txt.backtrack();
 		}
 		
-		//variable name
+		//variable assignment
 		//function definition
 
 		System.out.println("parse error");
