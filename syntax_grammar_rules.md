@@ -119,16 +119,16 @@ class definition:
 		def Dog name, species
 			#same as a function definition, but same name as class
 			#to indicate constructor
-				my name is name
-				my.species is species
-			end
-			
-			#static class methods work just like java
-			#are indicated by the "static" keyword in front of def
-			static def bark message
-				print message
-			end
+			this. name is name
+			this.species is species
 		end
+			
+		#static class methods work just like java
+		#are indicated by the "static" keyword in front of def
+		static def bark message
+			print message
+		end
+	end
 	
 	#'this' keyword refers to the object instance
 	#notice that we are using "this. x" instead of "this.x"
@@ -139,18 +139,12 @@ class instantiation:
 	dog is Dog "edward", "caribo type pokemon"
 	
 	#object function calls
-	dog. bark "hello!"
+	Dog. bark "hello!"
 	
 	#attribute accessing
 	print "name: " plus dog. name
 	print "species: " + dog. species
 	print "species: " + dog.species
-	
-	#special case attribute accessing
-	#when accessing an object's attribute as an argument to a function call from that object
-	#dog, bark your name
-	#equivalent to
-	#dog, bark dog's name
 	
 	
 	
