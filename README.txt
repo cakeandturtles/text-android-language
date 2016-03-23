@@ -1,3 +1,8 @@
+# TODO:
+  just edit android keyboard to have [] {} () ; at the ready instead
+  https://github.com/iantrich/Building-LatinIME-with-Android-Studio
+
+
 # text-android-language
 
 (.txt)
